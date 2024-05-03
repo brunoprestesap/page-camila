@@ -11,7 +11,7 @@ import {
 
 const Footer = () => {
   return (
-    <div id="footer" className="bg-[#003E53] p-5 md:p-12">
+    <footer id="footer" className="bg-[#003E53] p-5 md:p-12">
       {/* Content Section */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
         {/* Column One */}
@@ -38,11 +38,14 @@ const Footer = () => {
                   href="https://www.instagram.com/dra.camilaneiva/"
                   target="_blank"
                   rel="noreferrer"
+                  className="flex items-center gap-1"
+                  id="instagram"
                 >
-                  <div className="flex items-center gap-1">
-                    <FaInstagram color="white" size={25} />
-                  </div>
-                  <span className="hidden">Instagran</span>
+                  <FaInstagram
+                    aria-labelledby="instagram"
+                    color="white"
+                    size={25}
+                  />
                 </Link>
               </div>
               <div>
@@ -50,11 +53,14 @@ const Footer = () => {
                   href="https://www.facebook.com/camilaneiva.psiquiatra"
                   target="_blank"
                   rel="noreferrer"
+                  className="flex items-center gap-1"
+                  id="facebook"
                 >
-                  <span className="hidden">Facebook</span>
-                  <div className="flex items-center gap-1">
-                    <FaFacebookF color="white" size={25} />
-                  </div>
+                  <FaFacebookF
+                    aria-labelledby="facebook"
+                    color="white"
+                    size={25}
+                  />
                 </Link>
               </div>
             </div>
@@ -115,7 +121,7 @@ const Footer = () => {
           </Link>
         </div>
       </div>
-    </div>
+    </footer>
   );
 };
 

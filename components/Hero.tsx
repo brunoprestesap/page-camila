@@ -1,4 +1,3 @@
-import React from "react";
 import CardExperience from "./CardExperience";
 import Image from "next/image";
 import Link from "next/link";
@@ -6,13 +5,17 @@ import Link from "next/link";
 const Hero = () => {
   return (
     <section>
-      <Image
-        className="w-full h-screen object-cover object-top"
-        width={1980}
-        height={1024}
-        src="/assets/hero.jpg"
-        alt="hero top"
-      />
+      <div className="w-full h-screen">
+        <Image
+          src="/assets/hero.jpg"
+          className="w-full h-screen object-cover object-top"
+          quality={100}
+          fill
+          sizes="100vw"
+          alt="hero top"
+          priority
+        />
+      </div>
 
       <div className="w-full h-screen absolute top-0 left-0 md:bottom-4 bg-white/50">
         <div className="invisible md:visible absolute top-0 right-0 max-w-[700px] w-52 lg:w-72 m-auto h-full">
@@ -43,7 +46,10 @@ const Hero = () => {
             </div>
 
             <div className="w-full flex justify-center">
-              <button className="bg-[#003E53] rounded-lg w-full py-5 px-8 text-center hover:border hover:border-stone-100 hover:shadow-xl">
+              <button
+                title="Agendar consulta"
+                className="bg-[#003E53] rounded-lg w-full py-5 px-8 text-center hover:border hover:border-stone-100 hover:shadow-xl"
+              >
                 <Link
                   href="https://wa.me/5596991354590"
                   target="_blank"

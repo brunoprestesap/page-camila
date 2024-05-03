@@ -23,7 +23,10 @@ const Contact = () => {
               target="_blank"
               rel="noreferrer"
             >
-              <button className="bg-[#003E53] rounded-lg w-full py-3 px-8 mb-5 text-center hover:border hover:border-stone-100 hover:shadow-xl">
+              <button
+                title="Ir para rotas"
+                className="bg-[#003E53] rounded-lg w-full py-3 px-8 mb-5 text-center hover:border hover:border-stone-100 hover:shadow-xl"
+              >
                 <h2 className="text-white uppercase font-bold">Traçar rotas</h2>
               </button>
             </Link>
@@ -56,10 +59,14 @@ const Contact = () => {
             >
               <div className="grid md:grid-cols-2 gap-2 w-full">
                 <div className="flex flex-col">
-                  <label className="text-sm py-2 text-black font-medium">
+                  <label
+                    id="name_label"
+                    className="text-sm py-2 text-black font-medium"
+                  >
                     Nome
                   </label>
                   <input
+                    aria-labelledby="name_label"
                     className="rounded-lg p-1 flex border-[#003E53]-300 focus:ring focus:ring-[#003E53]"
                     type="text"
                     name="name"
@@ -67,10 +74,14 @@ const Contact = () => {
                   />
                 </div>
                 <div className="flex flex-col">
-                  <label className="text-sm py-2 text-black font-medium">
+                  <label
+                    id="phone_number"
+                    className="text-sm py-2 text-black font-medium"
+                  >
                     Telefone
                   </label>
                   <input
+                    aria-labelledby="phone_number"
                     className="rounded-lg p-1 flex border-[#003E53]-300 focus:ring focus:ring-[#003E53]"
                     type="text"
                     name="phone"
@@ -78,26 +89,37 @@ const Contact = () => {
                 </div>
               </div>
               <div className="flex flex-col py-2">
-                <label className="text-sm py-2 text-black font-medium">
+                <label
+                  id="email_label"
+                  className="text-sm py-2 text-black font-medium"
+                >
                   E-mail
                 </label>
                 <input
+                  aria-labelledby="email_label"
                   className="rounded-lg p-1 flex border-[#003E53]-300 focus:ring focus:ring-[#003E53]"
                   type="email"
                   name="email"
                 />
               </div>
               <div className="flex flex-col py-2">
-                <label className="text-sm py-2 text-black font-medium">
+                <label
+                  id="textarea-label"
+                  className="text-sm py-2 text-black font-medium"
+                >
                   Mensagem
                 </label>
                 <textarea
+                  aria-labelledby="textarea-label"
                   className="rounded-lg p-1 border-[#003E53]-300 focus:ring focus:ring-[#003E53]"
                   rows={5}
                   name="message"
                 ></textarea>
               </div>
-              <button className="bg-[#003E53] hover:bg-stone-700 text-gray-100 mt-4 w-full p-4 rounded-lg">
+              <button
+                title="Enviar Mensagem"
+                className="bg-[#003E53] hover:bg-stone-700 text-gray-100 mt-4 w-full p-4 rounded-lg"
+              >
                 <h2 className="text-lg font-bold">Enviar mensagem</h2>
               </button>
             </form>
