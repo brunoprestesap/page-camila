@@ -46,20 +46,20 @@ const Hero = () => {
             </div>
 
             <div className="w-full flex justify-center">
-              <button
-                title="Agendar consulta"
-                className="bg-[#003E53] rounded-lg w-full py-5 px-8 text-center hover:border hover:border-stone-100 hover:shadow-xl"
+              <Link
+                href="https://wa.me/5596991354590"
+                target="_blank"
+                rel="noreferrer"
               >
-                <Link
-                  href="https://wa.me/5596991354590"
-                  target="_blank"
-                  rel="noreferrer"
+                <button
+                  title="Agendar consulta"
+                  className="bg-[#003E53] rounded-lg w-full py-5 px-8 text-center hover:border hover:border-stone-100 hover:shadow-xl"
                 >
                   <h2 className="text-white uppercase font-bold">
                     Agende sua consulta
                   </h2>
-                </Link>
-              </button>
+                </button>
+              </Link>
             </div>
           </div>
         </div>
