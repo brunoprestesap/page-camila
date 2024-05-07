@@ -35,7 +35,7 @@ const Footer = () => {
             <div className="flex gap-3 my-3">
               <div>
                 <Link
-                  href="https://www.instagram.com/dra.camilaneiva/"
+                  href="https://www.instagram.com/camilaneiva.dra/"
                   target="_blank"
                   rel="noreferrer"
                   className="flex items-center gap-1"
