@@ -14,9 +14,10 @@ import { GoogleTagManager } from "@next/third-parties/google";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: 'Dra. Carmila Neiva - Médica Psiquiatra em Macapá',
-  description: "Estou aqui para ouvir suas preocupações e junto com você buscar maneiras de melhorar sua saúde mental e reencontrar sua paz e bem-estar. Vamos juntos definir o melhor plano de tratamento para você, seja ele com terapia, mudanças no estilo de vida, medicamentos ou uma combinação deles.",
-}
+  title: "Dra. Camila Neiva - Médica Psiquiatra em Macapá",
+  description:
+    "Estou aqui para ouvir suas preocupações e junto com você buscar maneiras de melhorar sua saúde mental e reencontrar sua paz e bem-estar. Vamos juntos definir o melhor plano de tratamento para você, seja ele com terapia, mudanças no estilo de vida, medicamentos ou uma combinação deles.",
+};
 
 export default function Home() {
   return (
