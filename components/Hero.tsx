@@ -38,10 +38,13 @@ const Hero = () => {
 
             <div className="my-10">
               <h2 className="text-2xl md:text-4xl font-medium">
-                Psiquiatra em Macapá/AP
+                Médica em Macapá/AP
               </h2>
               <h2 className="text-lg md:text-xl">
                 Atendimento presencial e por telemedicina
+              </h2>
+              <h2 className="text-sm text-center">
+                CRM AP 1789
               </h2>
             </div>
 
