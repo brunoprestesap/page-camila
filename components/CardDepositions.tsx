@@ -8,7 +8,7 @@ interface Props {
 
 const CardDepositions = ({ depText, depName }: Props) => {
   return (
-    <div className="flex flex-wrap justify-center shadow-lg mx-auto max-w-3xl py-5 group transform duration-500 cursor-pointer">
+    <div className="flex flex-wrap justify-center shadow-lg mx-auto max-w-3xl py-5 group cursor-pointer">
       <div className="flex flex-col justify-center items-center">
         <div className="flex justify-center gap-2 mb-3">
           <FaStar color="CDBCA8" />

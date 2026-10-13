@@ -64,7 +64,7 @@ const ContentsVideo = () => {
 
       {/* Div do Video */}
       <div className="w-full md:w-[350px] relative flex justify-center">
-        <div className="w-full md:w-6/6 object-cover duration-500">
+        <div className="w-full md:w-6/6 object-cover">
           <VideoPlayer
             id={contents[currentIndex].id}
             videoId={contents[currentIndex].videoId}
@@ -73,11 +73,11 @@ const ContentsVideo = () => {
         </div>
 
         {/* Left Arrow */}
-        <div className="absolute top-[40%] translate-x-0 translate-y-[50%] left-1 rounded-full p-2 bg-black/20 text-white cursor-pointer">
+        <div className="absolute top-[40%] translate-y-[50%] left-1 rounded-full p-2 bg-black/20 text-white cursor-pointer">
           <BsChevronCompactLeft onClick={prevSlide} size={30} />
         </div>
         {/* Right Arrow */}
-        <div className="absolute top-[40%] translate-x-0 translate-y-[50%] right-1  text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer">
+        <div className="absolute top-[40%] translate-y-[50%] right-1  text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer">
           <BsChevronCompactRight onClick={nextSlide} size={30} />
         </div>
       </div>

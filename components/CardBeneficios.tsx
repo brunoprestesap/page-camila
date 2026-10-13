@@ -8,7 +8,7 @@ interface Props {
 
 const CardBeneficios = ({ icon, title, text }: Props) => {
   return (
-    <div className="mx-auto group shadow-2xl rounded-b-2xl transform duration-500 hover:-translate-y-2">
+    <div className="mx-auto group shadow-2xl rounded-b-2xl duration-500 hover:-translate-y-2">
       <div className="p-5">
         <div className="flex justify-center">{icon}</div>
         <div className="w-full py-5">

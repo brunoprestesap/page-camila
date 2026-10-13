@@ -21,6 +21,7 @@ _São recomendações para manter a construção organizada, não exigências. P
 | 3 | Corrigir inicialização dupla do Meta Pixel | Slice 2 | in-progress |
 | 4 | Lint no formato novo do ESLint | Slice 3 | done |
 | 5 | Tailwind CSS 4 | Slice 4 | done |
+| 6 | Limpeza de classes sem efeito | Slice 5 | done |
 
 ## Existing
 
@@ -101,6 +102,14 @@ Migrar para o Tailwind 4, que move a configuração para dentro do CSS e troca o
 - [x] Verify it: `/check verify Tailwind CSS 4`
 spec [0003](../specs/0003-tailwind-css-4/index.md) · code in `app/globals.css`, `postcss.config.mjs`, `package.json`, `package-lock.json`, `components/`
 
+## Slice 5: Limpeza
+
+### 6. Limpeza de classes sem efeito · done
+Tirar dos componentes as classes que o Tailwind 4 deixou sem efeito (`translate-x-0`, `duration-500` sem `transition`, `transform` solto), para o código dizer só o que faz. Vem da [revisão da feature 5](../reviews/2026-10-13-feature-tailwind-4.md).
+**Done when:** as classes sem efeito saem de `Depositions`, `ContentsVideo` e dos cards, lint e build passam, e as duas páginas ficam iguais a antes no desktop e no celular.
+- [x] Build it: `/develop limpeza de classes sem efeito`
+code in `components/` (`CardBeneficios`, `CardDepositions`, `CardExperience`, `ContentsVideo`, `Depositions`, `FormCta`, `VideoPlayer`)
+
 ## Deferred
 Fora desta passada, guardado para o plano continuar honesto.
 - **TypeScript 7**: o novo compilador nativo, quando o Next e as ferramentas suportarem bem · needs a decision
@@ -108,6 +117,7 @@ Fora desta passada, guardado para o plano continuar honesto.
 - **Regras de TypeScript no lint**: avaliar o conjunto `eslint-config-next/typescript` como decisão separada · needs a decision. Vem do follow-up da spec [0002](../specs/0002-lint-eslint-flat-config.md)
 - **Avisos de peer e audit do lint**: revisar quando os plugins do `eslint-config-next` lançarem versões com suporte ao ESLint 10. Vem do follow-up da spec [0002](../specs/0002-lint-eslint-flat-config.md)
 - **Tokens das cores da marca**: transformar os hex fixos em tokens no `@theme` do Tailwind 4 (ex.: `bg-marca-azul`), mudando a regra de estilo do `AGENTS.md` · needs a decision. Vem do follow-up da spec [0003](../specs/0003-tailwind-css-4/index.md)
+- **Navegadores antigos**: o Tailwind 4 não tem fallback para Safari abaixo de 16.4, Chrome abaixo de 111 e Firefox abaixo de 128. Acompanhar no analytics se esse tráfego aparece antes de pensar numa solução · needs a decision. Vem das Consequences da spec [0003](../specs/0003-tailwind-css-4/index.md) e da [revisão da feature 5](../reviews/2026-10-13-feature-tailwind-4.md)
 - **React Compiler**: reavaliar se o site ganhar componentes de cliente com estado mais pesado · needs a decision. Vem do follow-up da spec [0001](../specs/0001-nextjs-16-react-19/index.md)
 
 ## Legend
