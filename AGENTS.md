@@ -4,8 +4,8 @@ Landing page da Dra. Camila Neiva (médica psiquiatra em Macapá/AP). Uma págin
 
 ## Stack
 
-- **Language / Runtime**: TypeScript (strict), Node
-- **Framework**: Next.js 14 (App Router), React 18
+- **Language / Runtime**: TypeScript (strict), Node 24
+- **Framework**: Next.js 16 (App Router, build com Turbopack), React 19
 - **Key dependencies**: Tailwind CSS 3, `react-icons`, `@next/third-parties` (Google Tag Manager)
 - **Package manager**: npm (`package-lock.json`)
 
