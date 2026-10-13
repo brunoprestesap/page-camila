@@ -20,7 +20,7 @@ const FormCta = () => {
         >
           <button
             title="Entrar em contato"
-            className="p-3 md:p-5 w-80 my-5 text-white rounded-2xl transform duration-500 hover:-translate-y-1 bg-[#003E53]/70 hover:bg-[#003E53]/90"
+            className="p-3 md:p-5 w-80 my-5 text-white rounded-2xl duration-500 hover:-translate-y-1 bg-[#003E53]/70 hover:bg-[#003E53]/90"
           >
             <div className="flex justify-center items-center gap-3 md:gap-5">
               <FaWhatsapp size={30} />
