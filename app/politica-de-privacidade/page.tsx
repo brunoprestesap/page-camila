@@ -1,10 +1,21 @@
 import ScreenImage from "@/components/ScreenImage";
 import type { Metadata } from "next";
+import { openGraphBase } from "../shared-metadata";
+
+const title = "Política de Privacidade - Dra. Camila Neiva";
+const description =
+  "Como o site da Dra. Camila Neiva, médica psiquiatra em Macapá, coleta, usa e protege as informações pessoais de quem o visita.";
 
 export const metadata: Metadata = {
-  title: "Política de Privacidade - Dra. Camila Neiva",
-  description:
-    "Como o site da Dra. Camila Neiva, médica psiquiatra em Macapá, coleta, usa e protege as informações pessoais de quem o visita.",
+  title,
+  description,
+  alternates: { canonical: "/politica-de-privacidade" },
+  openGraph: {
+    ...openGraphBase,
+    title,
+    description,
+    url: "/politica-de-privacidade",
+  },
 };
 
 const page = () => {
