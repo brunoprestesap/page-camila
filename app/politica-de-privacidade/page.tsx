@@ -1,20 +1,30 @@
 import ScreenImage from "@/components/ScreenImage";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Política de Privacidade - Dra. Camila Neiva",
+  description:
+    "Como o site da Dra. Camila Neiva, médica psiquiatra em Macapá, coleta, usa e protege as informações pessoais de quem o visita.",
+};
 
 const page = () => {
   return (
     <div id="privacidade" className="relative w-full">
-      <ScreenImage
-        className="w-full h-screen object-cover object-top"
-        width={3232}
-        height={4774}
-        src="/assets/brand.jpg"
-        alt="brand background"
-      />
+      {/* A foto acompanha a rolagem quando o texto passa da altura da tela, como no celular. */}
+      <div className="absolute inset-0">
+        <ScreenImage
+          className="sticky top-0 block w-full h-screen object-cover object-top"
+          width={3232}
+          height={4774}
+          src="/assets/brand.jpg"
+          alt="brand background"
+        />
+      </div>
 
-      <div className="w-full h-screen absolute top-0 left-0 md:bottom-4 bg-white/50">
+      <div className="relative w-full min-h-screen flex flex-col justify-end pt-5 bg-white/50">
         <div
           id="politica"
-          className="flex justify-center absolute bottom-10 left-0 md:w-5/6 lg:max-w-[1000px] px-5"
+          className="flex justify-center mb-10 md:w-5/6 lg:max-w-[1000px] px-5"
         >
           <div className="backdrop-opacity-10 rounded-2xl bg-white/60 px-5 py-8 shadow-2xl shadow-stone-500/50">
             <div className="flex gap-2">
