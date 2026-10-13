@@ -174,7 +174,7 @@ Abordagem Tracer Bullet (do cabeçalho do scope): primeiro o Tailwind 4 roda de 
 3. [x] Ajustar à spec, revisando o diff da ferramenta arquivo por arquivo: escrever o `app/globals.css` como na tabela (fontes limitadas, regra do cursor, sem `.cookie-notice`, sem blocos de compatibilidade), conferir `focus:ring-3` no `Contact`, remover as classes mortas, garantir `bg-white/60` no `Brand` e na política e `bg-white/50` no `Hero`. Desfazer qualquer outra mudança da ferramenta que não seja um renome obrigatório. Lint e build verdes, satisfies **AC-2**, **AC-5**, **AC-6**
 4. [x] Conferir o lock: `npm ci` numa cópia limpa do projeto, entradas dos binários de Linux no `package-lock.json` e `npm audit --json` comparado com a linha de base. Se faltarem os binários de Linux, apagar `node_modules` e `package-lock.json`, rodar `npm install` de novo e conferir outra vez. O `npm ci` num Mac não pega essa falta, então a conferência das entradas no lock é obrigatória, satisfies **AC-1**
 5. [x] Verificar no app real: servir o `out/` novo, tirar os mesmos prints e comparar, conferir os estilos calculados, o hover no desktop e no aparelho sem mouse simulado, o CSS gerado, o diff dos HTML, a barra de cookies e o console no `out/` e no `npm run dev`, satisfies **AC-3**, **AC-4**, **AC-5**, **AC-6**, **AC-7**
-6. [ ] Commitar na `feature/tailwind-4` (ver *Value sourcing*) e, com sua permissão para o push, validar o preview da branch na Vercel pelo Vercel MCP, satisfies **AC-8**
+6. [x] Commitar na `feature/tailwind-4` (ver *Value sourcing*) e, com sua permissão para o push, validar o preview da branch na Vercel pelo Vercel MCP, satisfies **AC-8**
 
 ## Consequences
 

@@ -93,11 +93,11 @@ spec [0002](../specs/0002-lint-eslint-flat-config.md) · code in `eslint.config.
 Migrar para o Tailwind 4, que move a configuração para dentro do CSS e troca o plugin do PostCSS.
 **Done when:** não existe mais `tailwind.config.ts` (ou ele é só legado documentado), as cores, sombras, bordas e espaçamentos das duas páginas ficam iguais a antes no desktop e no celular, e o build passa.
 - [x] Design it (spec): `/architect Tailwind CSS 4`
-- [ ] Build it: `/develop Tailwind CSS 4`
+- [x] Build it: `/develop Tailwind CSS 4`
   - [x] Linha de base do Tailwind 3 (audit, `out/`, prints, console, estilos calculados) · AC-1, AC-3, AC-4, AC-5
   - [x] Tailwind 4 de ponta a ponta com a ferramenta oficial, ajustado à spec (CSS, cursor, foco, classes mortas) · AC-1, AC-2, AC-3, AC-5, AC-6
   - [x] Lock com os binários de Linux e audit conferidos · AC-1
-  - [ ] Verificação contra a linha de base e preview na Vercel · AC-3, AC-4, AC-5, AC-6, AC-7, AC-8
+  - [x] Verificação contra a linha de base e preview na Vercel · AC-3, AC-4, AC-5, AC-6, AC-7, AC-8
 - [ ] Verify it: `/check verify Tailwind CSS 4`
 spec [0003](../specs/0003-tailwind-css-4.md) · code in `app/globals.css`, `postcss.config.mjs`, `package.json`, `package-lock.json`, `components/`
 
