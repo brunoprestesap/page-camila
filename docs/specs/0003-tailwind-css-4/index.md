@@ -7,26 +7,6 @@
 
 Esta decisão leva o site do Tailwind CSS 3.4 para o 4.3, usando a ferramenta oficial de migração (`npx @tailwindcss/upgrade`) e revisando o resultado arquivo por arquivo. A configuração sai do `tailwind.config.ts` e passa a morar no próprio `app/globals.css`, e o plugin do PostCSS (a etapa que transforma o CSS no build) vira o pacote `@tailwindcss/postcss`. O visual das duas páginas fica igual, com duas mudanças aceitas de propósito: aparelhos anteriores a 2023 (Safari abaixo de 16.4) deixam de ser atendidos, e no celular o efeito de hover não fica mais preso depois do toque. A prova é a mesma da spec 0001: prints antes e depois, comparados no olho.
 
-## Context
-
-O projeto usa o Tailwind 3.4, que só recebe correções. Parte dos alertas do `npm audit` registrados na spec [0002](0002-lint-eslint-flat-config.md) vem da cadeia de dependências do Tailwind 3. A configuração atual é mínima: o `tailwind.config.ts` lista as pastas `app/` e `components/` e define duas imagens de fundo (`gradient-radial` e `gradient-conic`) que nenhum componente usa. O `postcss.config.mjs` só chama o plugin `tailwindcss`, e o `globals.css` tem as três diretivas `@tailwind` mais uma classe `.cookie-notice` que nenhum componente usa.
-
-O Tailwind 4 muda coisas que este código usa:
-- Só funciona a partir do Safari 16.4, Chrome 111 e Firefox 128. Em navegadores mais antigos o CSS gerado não se aplica direito.
-- O `bg-opacity-*` deixou de existir. Ele aparece em `components/Brand.tsx`, `app/politica-de-privacidade/page.tsx` (junto de `bg-white`, dando branco a 60%) e em `components/Hero.tsx` (junto de `bg-white/50`, onde já não tem efeito).
-- O `ring` passa de 3px para 1px. Os quatro campos do formulário em `components/Contact.tsx` usam `focus:ring focus:ring-[#003E53]`.
-- Os botões passam a usar a seta padrão do navegador em vez da mãozinha.
-- O `hover:` passa a valer só em aparelhos com mouse (dentro de `@media (hover: hover)`). Cards em `CardExperience`, `CardBeneficios`, `VideoPlayer` e o botão em `FormCta` sobem no hover.
-- A cor padrão da borda passa de cinza claro para a cor do texto. Todo uso de borda no projeto já declara a cor, então isso não muda nada aqui.
-- A escala de desfoque muda de nome: o `backdrop-blur-sm` (4px) do v3 vira `backdrop-blur-xs` no v4. Ele aparece em `components/Apresentation.tsx` (`md:backdrop-blur-sm`).
-- A paleta padrão (`stone`, `slate`, `gray`) passa a ser definida em oklch (um jeito novo de descrever cor), com tons levemente diferentes. São cerca de 18 usos em textos e sombras. As cores da marca, em hex, não mudam.
-- Os cards que sobem no hover usam `transform duration-500` sem nenhuma classe `transition`. No v4 o movimento usa a propriedade `translate` em vez de `transform`. O resultado na tela é o mesmo, e não é para "consertar" a falta do `transition` nesta feature.
-- O v4 descobre sozinho quais arquivos ler para achar classes, ignorando o que está no `.gitignore`. As pastas `docs/` e `.claude/` têm muito Markdown com nomes de classes.
-
-Já existem classes que não geram estilo nenhum hoje: `border-[#003E53]-300` (quatro campos do `Contact`, um valor inválido), `hover:bg-light-gray` (`BtnWhats`, cor que não existe no tema) e o `bg-opacity-60` do `Hero`. O `backdrop-opacity-10` parece morto, mas não é: ele aplica um filtro de fundo e continua existindo no v4.
-
-O deploy é na Vercel, a partir do git, com `npm run build` e Node 24 (ver `AGENTS.md`). O Tailwind 4 depende de binários nativos por sistema (pacotes opcionais como `@tailwindcss/oxide-linux-x64-gnu`), e o `AGENTS.md` já registra um caso em que dependências opcionais ficaram de fora do `package-lock.json`.
-
 ## Requirements
 
 **User stories**:
@@ -38,55 +18,11 @@ O deploy é na Vercel, a partir do git, com `npm run build` e Node 24 (ver `AGEN
 - **AC-1**: o `package.json` declara `tailwindcss` e `@tailwindcss/postcss` em `^4.3.3` nas `devDependencies`, e `postcss` continua lá. O `tailwind.config.ts` não existe mais. O `postcss.config.mjs` usa só o plugin `@tailwindcss/postcss`. O `npm install` termina sem `--legacy-peer-deps`. Um `npm ci` numa cópia limpa do projeto termina sem erro, e o `package-lock.json` tem as entradas de `@tailwindcss/oxide-linux-x64-gnu` e `lightningcss-linux-x64-gnu` (os binários que a Vercel usa). O `npm audit --json` não piora: o conjunto de pares (pacote, alerta e gravidade) novo está contido no da linha de base. Como o banco de alertas muda com o tempo, um par novo só é aceito se o caminho dele (campo `via`) não passar por `tailwindcss`, `@tailwindcss/*`, `lightningcss` nem `postcss`, e cada um aceito assim fica registrado no relatório do `/develop`.
 - **AC-2**: o `app/globals.css` começa com `@import "tailwindcss" source(none);` seguido de `@source "../app";` e `@source "../components";`. Não sobra nenhuma diretiva `@tailwind`, nenhum `@config` e nenhuma classe `.cookie-notice`. Existe uma regra em `@layer base` que dá `cursor: pointer` a `button:not(:disabled)` e `[role="button"]:not(:disabled)`. Não existe bloco de compatibilidade para a cor padrão da borda nem para o `ring`, e não existe nenhum `@theme` (os gradientes do config antigo não são levados).
 - **AC-3**: `npm run build` (com o lint no `prebuild`) termina com sucesso e gera em `out/` o mesmo conjunto de arquivos da linha de base. A lista de nomes de arquivo é exata, deixando de fora `_next/static/`. Os arquivos vindos de `public/` são iguais byte a byte. Nos HTML, depois de trocar os hashes de `_next/static/` por um marcador, o diff contra a linha de base só pode estar em atributos `class`, e cada mudança bate com o diff dos componentes.
-- **AC-4**: as duas páginas geradas ficam visualmente iguais aos prints da linha de base, em 1440 px e 390 px, página inteira, seguindo o *Protocolo de verificação* da spec [0001](0001-nextjs-16-react-19/index.md) (barra de cookies visível, carrosséis no slide inicial, mapa do Google fora da comparação). Isso inclui as caixas brancas translúcidas do `Hero`, do `Brand` e da política de privacidade, e o desfoque do `Apresentation` no desktop. Uma diferença sutil de tom nas cores da paleta padrão (`stone`, `slate`, `gray`) é aceita. Posição, tamanho, espaçamento, forma, opacidade e as cores da marca não podem mudar.
+- **AC-4**: as duas páginas geradas ficam visualmente iguais aos prints da linha de base, em 1440 px e 390 px, página inteira, seguindo o *Protocolo de verificação* da spec [0001](../0001-nextjs-16-react-19/index.md) (barra de cookies visível, carrosséis no slide inicial, mapa do Google fora da comparação). Isso inclui as caixas brancas translúcidas do `Hero`, do `Brand` e da política de privacidade, e o desfoque do `Apresentation` no desktop. Uma diferença sutil de tom nas cores da paleta padrão (`stone`, `slate`, `gray`) é aceita. Posição, tamanho, espaçamento, forma, opacidade e as cores da marca não podem mudar.
 - **AC-5**: no `out/` servido, em 1440 px e sem aceite de cookies salvo: (a) `getComputedStyle` de cada `<button>` da página principal devolve `cursor: pointer`. São os botões de `Hero`, `Contact` (dois), `FormCta`, `BtnWhats` e `CookieNotice`, e a contagem bate com a da linha de base; (b) com um campo do formulário de contato focado, o `box-shadow` calculado contém `rgb(0, 62, 83) 0px 0px 0px 3px` (o texto completo pode diferir da linha de base, porque as variáveis internas do Tailwind mudaram); (c) passar o mouse sobre um card de `CardExperience` ainda o faz subir.
 - **AC-6**: o CSS gerado em `out/_next/static/` envolve todas as regras de `hover:` em `@media (hover:hover)` (a busca aceita com ou sem espaço depois dos dois pontos, e uma regra de `:hover` fora desse media é falha). Com `browser_emulate_media` simulando um aparelho sem mouse (`matchMedia('(hover: none)')` verdadeiro), tocar num card não o faz subir. O CSS também não contém nenhuma classe vinda só de `docs/` ou `.claude/` (ex.: um nome de classe que aparece só numa spec). Uma busca no código de `app/` e `components/` não encontra `bg-opacity-`, `border-[#003E53]-300` nem `hover:bg-light-gray`. Em `components/Brand.tsx` e `app/politica-de-privacidade/page.tsx`, o `bg-white bg-opacity-60` virou `bg-white/60`. O `Hero` mantém `bg-white/50`. O `backdrop-opacity-10` continua nos três lugares.
 - **AC-7**: o fluxo da barra de cookies continua igual ao AC-6 da spec 0001: sem aceite salvo, a barra aparece e o botão do WhatsApp fica acima dela; ao clicar em Aceitar, a barra some e o botão desce; ao recarregar, a barra não volta. O console não mostra erro novo nas duas páginas, no `out/` servido e no `npm run dev`.
 - **AC-8**: o build de preview na Vercel, feito a partir do push da branch `feature/tailwind-4`, termina com sucesso, e a página principal desse preview aparece com os estilos aplicados (a mesma aparência dos prints de 1440 px).
-
-## Options considered
-
-### Option 1: Ferramenta oficial de migração, com revisão
-
-Rodar `npx @tailwindcss/upgrade`, que troca as dependências, reescreve o `postcss.config.mjs`, move a configuração para o CSS e renomeia as classes nos componentes. Depois, revisar o diff e ajustar o que a spec decide diferente.
-
-**Pros**:
-- Aplica todos os renomes do guia oficial de uma vez, sem depender de memória.
-- O diff gerado é pequeno de revisar num projeto de 27 arquivos.
-
-**Cons**:
-- A ferramenta toma decisões sozinha (ex.: pode acrescentar blocos de compatibilidade) que precisam ser revistas.
-- Ela pede uma árvore git limpa, e a pasta `.claude/` sem commit atrapalha.
-
-### Option 2: Migração manual
-
-Trocar dependências, configuração e classes à mão, seguindo o guia de upgrade.
-
-**Pros**:
-- Controle total de cada linha.
-
-**Cons**:
-- Mais trabalho, e um renome esquecido só aparece no print, se aparecer.
-
-### Option 3: Tailwind 4 mantendo o `tailwind.config.ts`
-
-Subir para o v4, mas carregar a configuração em JavaScript com `@config`, sem mover nada para o CSS.
-
-**Pros**:
-- Muda menos arquivos.
-
-**Cons**:
-- O `@config` existe só para compatibilidade. O arquivo guarda duas definições que ninguém usa, então manter ele é carregar peso morto num formato legado.
-
-### Option 4: Ficar no Tailwind 3.4
-
-Não migrar agora.
-
-**Pros**:
-- Nenhum risco visual e nenhum navegador cortado.
-
-**Cons**:
-- Continua numa linha sem novidades e com os alertas do `npm audit` da cadeia do v3. Só adia o salto.
 
 ## Decision
 
@@ -96,15 +32,7 @@ O site passa para o Tailwind 4.3 com a configuração no `app/globals.css`, o pl
 
 ## Rationale
 
-O site é pequeno e a configuração quase vazia, então o risco da migração está nas classes, não na configuração. A ferramenta oficial conhece todos os renomes e é mais confiável que uma busca manual. A revisão depois dela garante que nada entra sem passar pelas decisões abaixo. A migração manual é a segunda opção, e vale só se a ferramenta falhar.
-
-O corte de navegadores foi aceito: aparelhos com Safari abaixo de 16.4 são de antes de 2023 e uma fatia pequena do tráfego de hoje, e ficar no v3 por causa deles prende o projeto numa linha que só recebe correções. O comportamento novo do hover também foi aceito, porque no celular o card preso depois do toque é um defeito, não uma escolha de design. A diferença sutil de tom da paleta padrão foi aceita pelo mesmo motivo das cores da marca abaixo: fixar os valores do v3 exigiria um `@theme` só para isso.
-
-As outras mudanças do v4 foram neutralizadas onde mudariam o que o visitante sente. A mãozinha volta por uma regra base, porque os botões são chamadas para agendar e precisam parecer clicáveis. O anel de foco fica em 3px com `focus:ring-3`, porque o foco visível ajuda quem navega pelo teclado. Já a cor padrão da borda não precisa de compatibilidade, porque todo uso de borda declara a cor, e um bloco de compatibilidade sem uso só confundiria quem ler depois.
-
-Limitar as fontes a `app/` e `components/` repete o `content` do v3. Sem isso, o v4 leria as specs e as skills em Markdown e geraria CSS para classes que só aparecem em texto. A alternativa mais simples, `@source not` para `docs/` e `.claude/`, deixaria qualquer pasta nova entrar sem querer.
-
-As cores da marca ficam como hex nas classes para esta feature ser só migração. Tokens no `@theme` mudariam a regra do `AGENTS.md` e todos os componentes, e merecem uma decisão própria.
+Raciocínio, contexto e opções: ver [rationale.md](rationale.md).
 
 ## Feature design
 

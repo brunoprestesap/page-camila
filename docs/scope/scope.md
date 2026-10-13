@@ -99,7 +99,7 @@ Migrar para o Tailwind 4, que move a configuração para dentro do CSS e troca o
   - [x] Lock com os binários de Linux e audit conferidos · AC-1
   - [x] Verificação contra a linha de base e preview na Vercel · AC-3, AC-4, AC-5, AC-6, AC-7, AC-8
 - [ ] Verify it: `/check verify Tailwind CSS 4`
-spec [0003](../specs/0003-tailwind-css-4.md) · code in `app/globals.css`, `postcss.config.mjs`, `package.json`, `package-lock.json`, `components/`
+spec [0003](../specs/0003-tailwind-css-4/index.md) · code in `app/globals.css`, `postcss.config.mjs`, `package.json`, `package-lock.json`, `components/`
 
 ## Deferred
 Fora desta passada, guardado para o plano continuar honesto.
@@ -107,7 +107,7 @@ Fora desta passada, guardado para o plano continuar honesto.
 - **`next.config.ts`**: converter o `next.config.mjs` para TypeScript quando alguém mexer na configuração por outro motivo. Vem do follow-up da spec [0001](../specs/0001-nextjs-16-react-19/index.md)
 - **Regras de TypeScript no lint**: avaliar o conjunto `eslint-config-next/typescript` como decisão separada · needs a decision. Vem do follow-up da spec [0002](../specs/0002-lint-eslint-flat-config.md)
 - **Avisos de peer e audit do lint**: revisar quando os plugins do `eslint-config-next` lançarem versões com suporte ao ESLint 10. Vem do follow-up da spec [0002](../specs/0002-lint-eslint-flat-config.md)
-- **Tokens das cores da marca**: transformar os hex fixos em tokens no `@theme` do Tailwind 4 (ex.: `bg-marca-azul`), mudando a regra de estilo do `AGENTS.md` · needs a decision. Vem do follow-up da spec [0003](../specs/0003-tailwind-css-4.md)
+- **Tokens das cores da marca**: transformar os hex fixos em tokens no `@theme` do Tailwind 4 (ex.: `bg-marca-azul`), mudando a regra de estilo do `AGENTS.md` · needs a decision. Vem do follow-up da spec [0003](../specs/0003-tailwind-css-4/index.md)
 - **React Compiler**: reavaliar se o site ganhar componentes de cliente com estado mais pesado · needs a decision. Vem do follow-up da spec [0001](../specs/0001-nextjs-16-react-19/index.md)
 
 ## Legend
