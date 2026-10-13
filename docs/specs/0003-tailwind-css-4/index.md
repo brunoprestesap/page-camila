@@ -46,12 +46,14 @@ Raciocínio, contexto e opções: ver [rationale.md](rationale.md).
 | `postcss.config.mjs` | `plugins: { "@tailwindcss/postcss": {} }` |
 | `tailwind.config.ts` | removido |
 | `app/globals.css` | `@import "tailwindcss" source(none);`, `@source "../app";`, `@source "../components";` e o `@layer base` com o cursor dos botões. Nada mais |
-| `components/Contact.tsx` | `focus:ring` vira `focus:ring-3` (mantém `focus:ring-[#003E53]`). `border-[#003E53]-300` sai dos quatro campos |
+| `components/Contact.tsx` | `focus:ring` vira `focus:ring-3` (mantém `focus:ring-[#003E53]`). `border-[#003E53]-300` sai dos quatro campos. Os quatro campos ganham `bg-white`, porque o reset base do v4 deixa `input` e `textarea` com fundo transparente (no v3 esse reset só valia para botões) |
 | `components/BtnWhats.tsx` | `hover:bg-light-gray` sai |
 | `components/Hero.tsx` | `bg-opacity-60` sai, `bg-white/50` fica |
 | `components/Brand.tsx`, `app/politica-de-privacidade/page.tsx` | `bg-white bg-opacity-60` vira `bg-white/60` |
 | `components/Apresentation.tsx` | `md:backdrop-blur-sm` vira `md:backdrop-blur-xs` (renome obrigatório, mantém os 4px) |
-| Demais classes | só os renomes que a ferramenta aplicar, cada um conferido no diff |
+| `components/CardDepositions.tsx` | o título ganha `md:leading-7`. No v3, o `md:text-xl` trazia a altura de linha dele (28px) e passava por cima do `leading-6`. No v4, o `leading-*` sempre ganha do tamanho de texto, e o bloco ficaria 16px mais baixo no desktop |
+| `components/ContentsVideo.tsx`, `components/Depositions.tsx` | `-translate-x-0` vira `translate-x-0`, aplicado pela ferramenta. É o mesmo valor (zero) |
+| Demais classes | sem mudança. Qualquer outra diferença que os prints mostrarem é tratada como regressão, e a correção entra nesta tabela antes do commit |
 
 **Value sourcing**:
 | Action | Value produced / displayed | Source |

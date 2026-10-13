@@ -15,6 +15,8 @@ O Tailwind 4 muda coisas que este código usa:
 - A cor padrão da borda passa de cinza claro para a cor do texto. Todo uso de borda no projeto já declara a cor, então isso não muda nada aqui.
 - A escala de desfoque muda de nome: o `backdrop-blur-sm` (4px) do v3 vira `backdrop-blur-xs` no v4. Ele aparece em `components/Apresentation.tsx` (`md:backdrop-blur-sm`).
 - A paleta padrão (`stone`, `slate`, `gray`) passa a ser definida em oklch (um jeito novo de descrever cor), com tons levemente diferentes. São cerca de 18 usos em textos e sombras. As cores da marca, em hex, não mudam.
+- O reset base do v4 (preflight, as regras que zeram o estilo padrão do navegador) deixa `input`, `textarea` e `select` com fundo transparente. No v3 isso só valia para botões. Os campos do formulário de contato não declaram fundo, então ficariam com o bege do cartão. Isso só apareceu nos prints do `/develop`, e a correção foi declarar `bg-white` nos campos.
+- No v4, uma classe `leading-*` sempre ganha da altura de linha que vem junto com `text-*`. No v3 ganhava a regra que vinha depois no CSS, então um `md:text-xl` passava por cima de um `leading-6` sem prefixo. Dos cinco componentes que misturam as duas, só o `CardDepositions` muda de resultado. Também apareceu nos prints, e a correção foi `md:leading-7`.
 - Os cards que sobem no hover usam `transform duration-500` sem nenhuma classe `transition`. No v4 o movimento usa a propriedade `translate` em vez de `transform`. O resultado na tela é o mesmo, e não é para "consertar" a falta do `transition` nesta feature.
 - O v4 descobre sozinho quais arquivos ler para achar classes, ignorando o que está no `.gitignore`. As pastas `docs/` e `.claude/` têm muito Markdown com nomes de classes.
 
