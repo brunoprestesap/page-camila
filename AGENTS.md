@@ -6,7 +6,7 @@ Landing page da Dra. Camila Neiva (médica psiquiatra em Macapá/AP). Uma págin
 
 - **Language / Runtime**: TypeScript (strict), Node 24
 - **Framework**: Next.js 16 (App Router, build com Turbopack), React 19
-- **Key dependencies**: Tailwind CSS 3, `react-icons`, `@next/third-parties` (Google Tag Manager)
+- **Key dependencies**: Tailwind CSS 4 (plugin `@tailwindcss/postcss`), `react-icons`, `@next/third-parties` (Google Tag Manager)
 - **Package manager**: npm (`package-lock.json`)
 
 ## Build approach
@@ -42,6 +42,7 @@ Stored in `docs/specs/`. Format: `docs/specs/NNNN-title.md`.
 - Uma seção da página = um componente em `components/` (PascalCase, `export default`), montado em ordem no `app/page.tsx`. Cards e itens repetidos ficam em componentes `Card*`, alimentados por um array local no componente da seção.
 - Props tipadas com `interface Props` no próprio arquivo. Import com o alias `@/` a partir da raiz.
 - Estilo só com classes Tailwind. As cores da marca são hex fixos nas classes: `#003E53` (azul escuro, botões), `#CDBCA8` (bege), `#7C5A12` (dourado, destaques), `#03C988` (WhatsApp). Reaproveite essas antes de criar outras.
+- A configuração do Tailwind fica no `app/globals.css` (não existe `tailwind.config`). Ele só lê classes de `app/` e `components/` (`source(none)` com dois `@source`). Uma pasta nova com componentes precisa de um `@source` lá, senão as classes dela não geram CSS (spec 0003).
 - `"use client"` só onde há estado, efeito ou API do navegador (ex.: `CookieNotice`, `MetaPixel`, `Depositions`, `ContentsVideo`).
 - Lint: ESLint 10 com `eslint.config.mjs` (flat config, `eslint-config-next/core-web-vitals`), rodando no projeto todo com `--max-warnings 0`. Corrija o código em vez de usar `eslint-disable` ou desligar regras (spec 0002).
 - Arquivos estáticos (imagens, capas, vídeos `.mp4`) ficam em `public/assets/` e são referenciados como `/assets/...`.
@@ -55,6 +56,8 @@ Stored in `docs/specs/`. Format: `docs/specs/NNNN-title.md`.
 - Metadados (title, description) ficam em cada `page.tsx`, além do padrão em `app/layout.tsx`.
 - Deploy: o projeto `landing-camila` na Vercel builda a partir do git com `npm run build` e precisa de Node 24.x (o 20.x foi descontinuado e fazia todo deploy falhar). Como o lint roda no `prebuild`, um erro de lint barra o deploy.
 - Depois de mudar dependências, confira o lock com `npm ci` numa pasta limpa. Um `npm i` sobre um `node_modules` já existente deixou dependências opcionais de fora do `package-lock.json` (a Vercel usa `npm install` e não acusa).
+- O lock precisa ter `@tailwindcss/oxide-linux-x64-gnu` e `lightningcss-linux-x64-gnu`, os binários do Tailwind 4 que a Vercel usa. O `npm ci` num Mac não acusa se eles faltarem.
+- Diferenças do Tailwind 4 que já pegaram este site: campos de formulário vêm com fundo transparente (declare `bg-white`), `leading-*` sempre ganha da altura de linha de `text-*`, `hover:` só vale em aparelhos com mouse, e os botões usam a seta padrão (o `globals.css` devolve a mãozinha). Ao mexer em estilo, compare prints antes e depois.
 
 ## Agent skills
 
