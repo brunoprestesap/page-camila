@@ -1,14 +1,16 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss" source(none);
 
-.cookie-notice {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: #333;
-  color: white;
-  padding: 10px;
-  text-align: center;
+@source "../app";
+@source "../components";
+
+/*
+  No Tailwind 4 os botões usam a seta padrão do navegador.
+  Esta regra devolve a mãozinha do v3, porque os botões do site
+  são chamadas para agendar e precisam parecer clicáveis.
+*/
+@layer base {
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
 }
