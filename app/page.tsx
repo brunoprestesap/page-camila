@@ -10,7 +10,6 @@ import FormCta from "@/components/FormCta";
 import Hero from "@/components/Hero";
 import MetaPixel from "@/components/MetaPixel";
 import Treatment from "@/components/Treatment";
-import { GoogleTagManager } from "@next/third-parties/google";
 import type { Metadata } from "next";
 import { openGraphBase } from "./shared-metadata";
 
@@ -29,7 +28,7 @@ export default function Home() {
   return (
     <>
       <MetaPixel />
-      <GoogleTagManager gtmId="GTM-KMRWN8G3" />
+      {/* GTM pausado. Para reativar: <GoogleTagManager gtmId="GTM-KMRWN8G3" />, importado de "@next/third-parties/google" */}
       <BtnUp />
       <Hero />
       <Treatment />
