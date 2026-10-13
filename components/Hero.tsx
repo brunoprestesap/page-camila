@@ -1,19 +1,18 @@
 import CardExperience from "./CardExperience";
-import Image from "next/image";
+import ScreenImage from "./ScreenImage";
 import Link from "next/link";
 
 const Hero = () => {
   return (
     <section id="hero">
       <div className="w-full h-screen">
-        <Image
+        <ScreenImage
           src="/assets/hero.jpg"
           className="w-full h-screen object-cover object-top"
-          quality={100}
-          fill
-          sizes="100vw"
+          width={2671}
+          height={4288}
           alt="hero top"
-          priority
+          eager
         />
       </div>
 
