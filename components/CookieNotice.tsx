@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import React, { useSyncExternalStore } from "react";
 import BtnWhats from "./BtnWhats";
 
@@ -57,7 +58,12 @@ const CookieNotice = () => {
         style={{ zIndex: "1000" }}
       >
         <div className="flex flex-row items-center justify-center gap-4">
-          <h2>Nosso site usa cookies para melhorar a navegação.</h2>
+          <h2>
+            Nosso site usa cookies para melhorar a navegação.{" "}
+            <Link href="/politica-de-privacidade" className="underline">
+              Saiba mais
+            </Link>
+          </h2>
 
           <button
             onClick={acceptCookies}

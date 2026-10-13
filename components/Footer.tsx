@@ -119,6 +119,11 @@ const Footer = () => {
           <Link href="#contact">
             <h2 className="text-base my-2 mx-3 text-white">Localização</h2>
           </Link>
+          <Link href="/politica-de-privacidade">
+            <h2 className="text-base my-2 mx-3 text-white">
+              Política de privacidade
+            </h2>
+          </Link>
         </div>
       </div>
     </footer>
