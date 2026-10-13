@@ -1,0 +1,6 @@
+# Hospedagem Hostinger (LiteSpeed). O export estático gera "rota.html" e também
+# uma pasta "rota/" com os arquivos RSC, sem index. Sem esta regra, "/rota" cai na
+# pasta e responde 403. A Vercel ignora este arquivo.
+RewriteEngine On
+RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+RewriteRule ^(.+?)/?$ /$1.html [L]
