@@ -35,6 +35,7 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# ferramentas locais (Claude Code, Playwright MCP)
+# ferramentas locais (Claude Code, skills, Playwright MCP)
 .claude/
 .playwright-mcp/
+skills-lock.json
