@@ -1,21 +1,48 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useSyncExternalStore } from "react";
 import BtnWhats from "./BtnWhats";
 
-const CookieNotice = () => {
-  const [accepted, setAccepted] = useState(false);
+const STORAGE_KEY = "cookieAccepted";
+const ACCEPTED_EVENT = "cookie-accepted";
 
-  useEffect(() => {
-    const hasAccepted = localStorage.getItem("cookieAccepted");
-    if (hasAccepted) {
-      setAccepted(true);
-    }
-  }, []);
+// Vale até a página recarregar, para o aceite funcionar mesmo com o localStorage bloqueado.
+let acceptedInMemory = false;
+
+function subscribe(onChange: () => void) {
+  window.addEventListener(ACCEPTED_EVENT, onChange);
+  window.addEventListener("storage", onChange);
+  return () => {
+    window.removeEventListener(ACCEPTED_EVENT, onChange);
+    window.removeEventListener("storage", onChange);
+  };
+}
+
+function getSnapshot() {
+  if (acceptedInMemory) return true;
+  try {
+    return Boolean(window.localStorage.getItem(STORAGE_KEY));
+  } catch {
+    return false;
+  }
+}
+
+// O HTML estático sai sempre com a barra visível.
+function getServerSnapshot() {
+  return false;
+}
+
+const CookieNotice = () => {
+  const accepted = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 
   const acceptCookies = () => {
-    localStorage.setItem("cookieAccepted", "true");
-    setAccepted(true);
+    acceptedInMemory = true;
+    try {
+      window.localStorage.setItem(STORAGE_KEY, "true");
+    } catch {
+      // localStorage bloqueado: o aceite fica só na memória.
+    }
+    window.dispatchEvent(new Event(ACCEPTED_EVENT));
   };
 
   if (accepted) {
