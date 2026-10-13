@@ -7,7 +7,7 @@ const Contact = () => {
     <div id="contact" className="my-8">
       <div className="flex justify-center gap-3 mb-8">
         <h2 className="flex gap-2 text-4xl font-bold text-center text-[#CDBCA8]">
-          <FaMapMarkedAlt color="003E53" />
+          <FaMapMarkedAlt color="#003E53" />
           ONDE
         </h2>
         <h2 className="text-4xl font-bold text-center text-[#003E53] underline decoration-[#7C5A12] underline-offset-8">
@@ -22,13 +22,9 @@ const Contact = () => {
               href="https://www.google.com/maps/place/Psiquiatra+em+Macap%C3%A1+-+Dra.+Camila+Neiva/@0.0305236,-51.0658788,17z/data=!3m1!4b1!4m6!3m5!1s0x8d61e10bcf1b86ed:0x6f027f4a0e7e4563!8m2!3d0.0305182!4d-51.0633039!16s%2Fg%2F11tdr4qpss?entry=ttu"
               target="_blank"
               rel="noreferrer"
+              className="bg-[#003E53] rounded-lg py-3 px-8 mb-5 text-center hover:border hover:border-stone-100 hover:shadow-xl"
             >
-              <button
-                title="Ir para rotas"
-                className="bg-[#003E53] rounded-lg w-full py-3 px-8 mb-5 text-center hover:border hover:border-stone-100 hover:shadow-xl"
-              >
-                <h2 className="text-white uppercase font-bold">Traçar rotas</h2>
-              </button>
+              <h2 className="text-white uppercase font-bold">Traçar rotas</h2>
             </Link>
           </div>
           <div className="w-full shadow-2xl shadow-stone-500/50">

@@ -88,24 +88,37 @@ const Depositions = () => {
         </div>
 
         {/* Left Arrow */}
-        <div className="absolute top-[40%] translate-y-[50%] left-0 md:left-0 lg:left-64 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer">
-          <BsChevronCompactLeft onClick={prevSlide} size={30} />
-        </div>
+        <button
+          type="button"
+          onClick={prevSlide}
+          aria-label="Depoimento anterior"
+          className="absolute top-[40%] translate-y-[50%] left-0 md:left-0 lg:left-64 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer"
+        >
+          <BsChevronCompactLeft size={30} />
+        </button>
         {/* Right Arrow */}
-        <div className="absolute top-[40%] translate-y-[50%] right-0 md:right-0 lg:right-64 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer">
-          <BsChevronCompactRight onClick={nextSlide} size={30} />
-        </div>
+        <button
+          type="button"
+          onClick={nextSlide}
+          aria-label="Próximo depoimento"
+          className="absolute top-[40%] translate-y-[50%] right-0 md:right-0 lg:right-64 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer"
+        >
+          <BsChevronCompactRight size={30} />
+        </button>
       </div>
 
       <div className="flex top-4 justify-center py-2">
         {testimonials.map((slide, slideIndex) => (
-          <div
+          <button
+            type="button"
             key={slide.id}
             onClick={() => goToSlide(slideIndex)}
+            aria-label={`Ir para o depoimento ${slideIndex + 1}`}
+            aria-current={slideIndex === currentIndex}
             className="text-2xl cursor-pointer"
           >
             <RxDotFilled />
-          </div>
+          </button>
         ))}
       </div>
     </div>

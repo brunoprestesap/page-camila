@@ -17,16 +17,12 @@ const FormCta = () => {
           href="https://wa.me/5596991354590"
           target="_blank"
           rel="noreferrer"
+          className="p-3 md:p-5 w-80 my-5 text-white rounded-2xl duration-500 hover:-translate-y-1 bg-[#003E53]/70 hover:bg-[#003E53]/90"
         >
-          <button
-            title="Entrar em contato"
-            className="p-3 md:p-5 w-80 my-5 text-white rounded-2xl duration-500 hover:-translate-y-1 bg-[#003E53]/70 hover:bg-[#003E53]/90"
-          >
-            <div className="flex justify-center items-center gap-3 md:gap-5">
-              <FaWhatsapp size={30} />
-              <h2 className="text-lg md:text-xl">Agende sua consulta</h2>
-            </div>
-          </button>
+          <div className="flex justify-center items-center gap-3 md:gap-5">
+            <FaWhatsapp size={30} />
+            <h2 className="text-lg md:text-xl">Agende sua consulta</h2>
+          </div>
         </Link>
       </div>
     </div>

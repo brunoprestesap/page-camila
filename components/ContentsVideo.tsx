@@ -49,7 +49,7 @@ const ContentsVideo = () => {
 
   return (
     <div
-      id="depoimentos"
+      id="conteudos"
       className="m-8 flex justify-center flex-col items-center"
     >
       {/* Title div */}
@@ -73,24 +73,37 @@ const ContentsVideo = () => {
         </div>
 
         {/* Left Arrow */}
-        <div className="absolute top-[40%] translate-y-[50%] left-1 rounded-full p-2 bg-black/20 text-white cursor-pointer">
-          <BsChevronCompactLeft onClick={prevSlide} size={30} />
-        </div>
+        <button
+          type="button"
+          onClick={prevSlide}
+          aria-label="Vídeo anterior"
+          className="absolute top-[40%] translate-y-[50%] left-1 rounded-full p-2 bg-black/20 text-white cursor-pointer"
+        >
+          <BsChevronCompactLeft size={30} />
+        </button>
         {/* Right Arrow */}
-        <div className="absolute top-[40%] translate-y-[50%] right-1  text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer">
-          <BsChevronCompactRight onClick={nextSlide} size={30} />
-        </div>
+        <button
+          type="button"
+          onClick={nextSlide}
+          aria-label="Próximo vídeo"
+          className="absolute top-[40%] translate-y-[50%] right-1  text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer"
+        >
+          <BsChevronCompactRight size={30} />
+        </button>
       </div>
 
       <div className="flex top-4 justify-center py-2">
         {contents.map((slide, slideIndex) => (
-          <div
+          <button
+            type="button"
             key={slide.id}
             onClick={() => goToSlide(slideIndex)}
+            aria-label={`Ir para o vídeo ${slideIndex + 1}`}
+            aria-current={slideIndex === currentIndex}
             className="text-2xl cursor-pointer"
           >
             <RxDotFilled />
-          </div>
+          </button>
         ))}
       </div>
     </div>

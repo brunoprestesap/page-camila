@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const Hero = () => {
   return (
-    <section>
+    <section id="hero">
       <div className="w-full h-screen">
         <Image
           src="/assets/hero.jpg"
@@ -22,10 +22,7 @@ const Hero = () => {
           <CardExperience />
         </div>
 
-        <div
-          id="sobre"
-          className="flex absolute bottom-16 md:bottom-24 left-0 md:left-7 m-5 md:m-0"
-        >
+        <div className="flex absolute bottom-16 md:bottom-24 left-0 md:left-7 m-5 md:m-0">
           <div className="backdrop-opacity-10 rounded-2xl bg-white/50 p-5 shadow-2xl shadow-stone-500/50">
             <h1 className="text-6xl uppercase lg:text-6xl">Dra.</h1>
             <h1 className="text-6xl uppercase lg:text-6xl font-bold">
@@ -53,15 +50,11 @@ const Hero = () => {
                 href="https://wa.me/5596991354590"
                 target="_blank"
                 rel="noreferrer"
+                className="bg-[#003E53] rounded-lg py-5 px-8 text-center hover:border hover:border-stone-100 hover:shadow-xl"
               >
-                <button
-                  title="Agendar consulta"
-                  className="bg-[#003E53] rounded-lg w-full py-5 px-8 text-center hover:border hover:border-stone-100 hover:shadow-xl"
-                >
-                  <h2 className="text-white uppercase font-bold">
-                    Agende sua consulta
-                  </h2>
-                </button>
+                <h2 className="text-white uppercase font-bold">
+                  Agende sua consulta
+                </h2>
               </Link>
             </div>
           </div>
