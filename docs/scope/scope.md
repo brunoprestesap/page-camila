@@ -78,12 +78,12 @@ code in `components/MetaPixel.tsx`
 O Next 16 remove o comando `next lint`, então o projeto precisa passar a usar o ESLint direto, com a configuração no formato novo (flat config) e a versão atual do `eslint-config-next`.
 **Done when:** `npm run lint` roda o ESLint atual sem erros e com as mesmas regras do Next (core web vitals) de antes.
 - [x] Design it (spec): `/architect lint no formato novo do ESLint`
-- [ ] Build it: `/develop lint no formato novo do ESLint`
+- [x] Build it: `/develop lint no formato novo do ESLint`
   - [x] Linha de base (audit, lista do `out/`, saída do lint atual) · AC-1, AC-8
   - [x] ESLint 10 com flat config rodando de ponta a ponta, `.eslintrc.json` removido · AC-1, AC-2, AC-3
   - [x] `CookieNotice` com `useSyncExternalStore`, lint verde · AC-2, AC-5, AC-6
   - [x] Lint no `prebuild` e build conferido · AC-4, AC-8
-  - [ ] Verificação no navegador e no preview da Vercel · AC-5, AC-6, AC-7. Navegador ok; o preview está bloqueado porque o projeto na Vercel usa Node 20.x, que foi descontinuado (todo deploy falha desde 13/10/2026)
+  - [x] Verificação no navegador e no preview da Vercel · AC-5, AC-6, AC-7. O Node do projeto na Vercel passou de 20.x (descontinuado, fazia todo deploy falhar) para 24.x
 - [ ] Verify it: `/check verify lint no formato novo do ESLint`
 spec [0002](../specs/0002-lint-eslint-flat-config.md) · code in `eslint.config.mjs`, `package.json`, `package-lock.json`, `components/CookieNotice.tsx`
 
