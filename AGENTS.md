@@ -58,6 +58,7 @@ Stored in `docs/specs/`. Format: `docs/specs/NNNN-title.md`.
 - Depois de mudar dependências, confira o lock com `npm ci` numa pasta limpa. Um `npm i` sobre um `node_modules` já existente deixou dependências opcionais de fora do `package-lock.json` (a Vercel usa `npm install` e não acusa).
 - O lock precisa ter `@tailwindcss/oxide-linux-x64-gnu` e `lightningcss-linux-x64-gnu`, os binários do Tailwind 4 que a Vercel usa. O `npm ci` num Mac não acusa se eles faltarem.
 - Diferenças do Tailwind 4 que já pegaram este site: campos de formulário vêm com fundo transparente (declare `bg-white`), `leading-*` sempre ganha da altura de linha de `text-*`, `hover:` só vale em aparelhos com mouse, e os botões usam a seta padrão (o `globals.css` devolve a mãozinha). Ao mexer em estilo, compare prints antes e depois.
+- No Tailwind 4, `translate-*` e `scale-*` não precisam de `transform` (ele só monta rotate e skew). Já `duration-*` sozinho anima tudo, porque `transition-property` vale `all` por padrão. É ele que deixa suave o `hover:-translate-y-*` dos cards, então não o remova como se fosse classe morta.
 
 ## Agent skills
 
