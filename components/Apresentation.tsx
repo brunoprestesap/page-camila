@@ -4,7 +4,7 @@ import React from "react";
 const Apresentation = () => {
   return (
     <div className="w-full flex justify-center items-center md:my-8">
-      <div className="w-full md:h-4/6 md:w-5/6 xl:w-4/6 md:flex md:items-center bg-white p-5 md:shadow-xl md:shadow-gray-500/50 md:backdrop-blur-sm rounded-xl">
+      <div className="w-full md:h-4/6 md:w-5/6 xl:w-4/6 md:flex md:items-center bg-white p-5 md:shadow-xl md:shadow-gray-500/50 md:backdrop-blur-xs rounded-xl">
         <div className="w-full md:flex justify-center">
           <Image
             className="w-full"

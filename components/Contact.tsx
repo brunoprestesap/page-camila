@@ -67,7 +67,7 @@ const Contact = () => {
                   </label>
                   <input
                     aria-labelledby="name_label"
-                    className="rounded-lg p-1 flex border-[#003E53]-300 focus:ring focus:ring-[#003E53]"
+                    className="rounded-lg p-1 flex bg-white focus:ring-3 focus:ring-[#003E53]"
                     type="text"
                     name="name"
                     id="name"
@@ -82,7 +82,7 @@ const Contact = () => {
                   </label>
                   <input
                     aria-labelledby="phone_number"
-                    className="rounded-lg p-1 flex border-[#003E53]-300 focus:ring focus:ring-[#003E53]"
+                    className="rounded-lg p-1 flex bg-white focus:ring-3 focus:ring-[#003E53]"
                     type="text"
                     name="phone"
                   />
@@ -97,7 +97,7 @@ const Contact = () => {
                 </label>
                 <input
                   aria-labelledby="email_label"
-                  className="rounded-lg p-1 flex border-[#003E53]-300 focus:ring focus:ring-[#003E53]"
+                  className="rounded-lg p-1 flex bg-white focus:ring-3 focus:ring-[#003E53]"
                   type="email"
                   name="email"
                 />
@@ -111,7 +111,7 @@ const Contact = () => {
                 </label>
                 <textarea
                   aria-labelledby="textarea-label"
-                  className="rounded-lg p-1 border-[#003E53]-300 focus:ring focus:ring-[#003E53]"
+                  className="rounded-lg p-1 bg-white focus:ring-3 focus:ring-[#003E53]"
                   rows={5}
                   name="message"
                 ></textarea>

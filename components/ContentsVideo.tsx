@@ -73,11 +73,11 @@ const ContentsVideo = () => {
         </div>
 
         {/* Left Arrow */}
-        <div className="absolute top-[40%] -translate-x-0 translate-y-[50%] left-1 rounded-full p-2 bg-black/20 text-white cursor-pointer">
+        <div className="absolute top-[40%] translate-x-0 translate-y-[50%] left-1 rounded-full p-2 bg-black/20 text-white cursor-pointer">
           <BsChevronCompactLeft onClick={prevSlide} size={30} />
         </div>
         {/* Right Arrow */}
-        <div className="absolute top-[40%] -translate-x-0 translate-y-[50%] right-1  text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer">
+        <div className="absolute top-[40%] translate-x-0 translate-y-[50%] right-1  text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer">
           <BsChevronCompactRight onClick={nextSlide} size={30} />
         </div>
       </div>

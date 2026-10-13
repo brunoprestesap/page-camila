@@ -20,7 +20,7 @@ _São recomendações para manter a construção organizada, não exigências. P
 | 2 | Next.js 16 e React 19 | Slice 2 | done |
 | 3 | Corrigir inicialização dupla do Meta Pixel | Slice 2 | in-progress |
 | 4 | Lint no formato novo do ESLint | Slice 3 | done |
-| 5 | Tailwind CSS 4 | Slice 4 | planned |
+| 5 | Tailwind CSS 4 | Slice 4 | in-progress |
 
 ## Existing
 
@@ -89,10 +89,17 @@ spec [0002](../specs/0002-lint-eslint-flat-config.md) · code in `eslint.config.
 
 ## Slice 4: Tailwind CSS 4
 
-### 5. Tailwind CSS 4 · needs a decision
+### 5. Tailwind CSS 4 · in-progress
 Migrar para o Tailwind 4, que move a configuração para dentro do CSS e troca o plugin do PostCSS.
 **Done when:** não existe mais `tailwind.config.ts` (ou ele é só legado documentado), as cores, sombras, bordas e espaçamentos das duas páginas ficam iguais a antes no desktop e no celular, e o build passa.
-- [ ] Design it (spec): `/architect Tailwind CSS 4`
+- [x] Design it (spec): `/architect Tailwind CSS 4`
+- [ ] Build it: `/develop Tailwind CSS 4`
+  - [x] Linha de base do Tailwind 3 (audit, `out/`, prints, console, estilos calculados) · AC-1, AC-3, AC-4, AC-5
+  - [x] Tailwind 4 de ponta a ponta com a ferramenta oficial, ajustado à spec (CSS, cursor, foco, classes mortas) · AC-1, AC-2, AC-3, AC-5, AC-6
+  - [x] Lock com os binários de Linux e audit conferidos · AC-1
+  - [ ] Verificação contra a linha de base e preview na Vercel · AC-3, AC-4, AC-5, AC-6, AC-7, AC-8
+- [ ] Verify it: `/check verify Tailwind CSS 4`
+spec [0003](../specs/0003-tailwind-css-4.md) · code in `app/globals.css`, `postcss.config.mjs`, `package.json`, `package-lock.json`, `components/`
 
 ## Deferred
 Fora desta passada, guardado para o plano continuar honesto.
@@ -100,6 +107,7 @@ Fora desta passada, guardado para o plano continuar honesto.
 - **`next.config.ts`**: converter o `next.config.mjs` para TypeScript quando alguém mexer na configuração por outro motivo. Vem do follow-up da spec [0001](../specs/0001-nextjs-16-react-19/index.md)
 - **Regras de TypeScript no lint**: avaliar o conjunto `eslint-config-next/typescript` como decisão separada · needs a decision. Vem do follow-up da spec [0002](../specs/0002-lint-eslint-flat-config.md)
 - **Avisos de peer e audit do lint**: revisar quando os plugins do `eslint-config-next` lançarem versões com suporte ao ESLint 10. Vem do follow-up da spec [0002](../specs/0002-lint-eslint-flat-config.md)
+- **Tokens das cores da marca**: transformar os hex fixos em tokens no `@theme` do Tailwind 4 (ex.: `bg-marca-azul`), mudando a regra de estilo do `AGENTS.md` · needs a decision. Vem do follow-up da spec [0003](../specs/0003-tailwind-css-4.md)
 - **React Compiler**: reavaliar se o site ganhar componentes de cliente com estado mais pesado · needs a decision. Vem do follow-up da spec [0001](../specs/0001-nextjs-16-react-19/index.md)
 
 ## Legend

@@ -23,7 +23,7 @@ const CardDepositions = ({ depText, depName }: Props) => {
         <div className="px-5">
           <div className="md:flex md:items-center md:gap-5">
             <FaQuoteLeft className="invisible md:visible" size={25} />
-            <h2 className="text-justify leading-6 text-stone-900 text-base md:text-xl font-medium">
+            <h2 className="text-justify leading-6 md:leading-7 text-stone-900 text-base md:text-xl font-medium">
               {depText}
             </h2>
             <FaQuoteRight className="invisible md:visible" size={25} />

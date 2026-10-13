@@ -16,7 +16,7 @@ const page = () => {
           id="politica"
           className="flex justify-center absolute bottom-10 left-0 md:w-5/6 lg:max-w-[1000px] px-5"
         >
-          <div className="backdrop-opacity-10 rounded-2xl bg-white px-5 py-8 bg-opacity-60 shadow-2xl shadow-stone-500/50">
+          <div className="backdrop-opacity-10 rounded-2xl bg-white/60 px-5 py-8 shadow-2xl shadow-stone-500/50">
             <div className="flex gap-2">
               <h2 className="text-2xl md:text-4xl tracking-widest text-[#CDBCA8] font-extrabold">
                 POLÍTICA DE
