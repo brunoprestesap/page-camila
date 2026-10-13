@@ -52,7 +52,7 @@ Stored in `docs/specs/`. Format: `docs/specs/NNNN-title.md`.
 
 ## Gotchas
 
-- O link do WhatsApp (`https://wa.me/5596991354590`) está repetido em `Hero`, `FormCta` e `BtnWhats`. Mudou o número, mude nos três.
+- O link do WhatsApp (`https://wa.me/5596991354590?text=...`, com a mensagem pronta "Olá! Vim pelo site da Dra. Camila e gostaria de agendar uma consulta." codificada na URL) está repetido em `Hero`, `FormCta` e `BtnWhats`. Mudou o número ou a mensagem, mude nos três.
 - Rastreamento: o ID do GTM fica em `app/page.tsx` e o ID do Meta Pixel em `components/MetaPixel.tsx`. O clique no botão flutuante do WhatsApp dispara `sendGTMEvent`.
 - O aviso de cookies (`CookieNotice`) é renderizado por dentro de `BtnUp`, e ele mesmo decide a posição do `BtnWhats` (aceite salvo em `localStorage`).
 - Metadados (title, description) ficam em cada `page.tsx`, além do padrão em `app/layout.tsx`.

@@ -46,7 +46,7 @@ const Hero = () => {
 
             <div className="w-full flex justify-center">
               <Link
-                href="https://wa.me/5596991354590"
+                href="https://wa.me/5596991354590?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Dra.%20Camila%20e%20gostaria%20de%20agendar%20uma%20consulta."
                 target="_blank"
                 rel="noreferrer"
                 className="bg-[#003E53] rounded-lg py-5 px-8 text-center hover:border hover:border-stone-100 hover:shadow-xl"

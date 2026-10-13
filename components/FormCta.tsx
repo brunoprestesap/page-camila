@@ -14,7 +14,7 @@ const FormCta = () => {
         </h2>
 
         <Link
-          href="https://wa.me/5596991354590"
+          href="https://wa.me/5596991354590?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Dra.%20Camila%20e%20gostaria%20de%20agendar%20uma%20consulta."
           target="_blank"
           rel="noreferrer"
           className="p-3 md:p-5 w-80 my-5 text-white rounded-2xl duration-500 hover:-translate-y-1 bg-[#003E53]/70 hover:bg-[#003E53]/90"
