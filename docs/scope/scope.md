@@ -18,7 +18,7 @@ _São recomendações para manter a construção organizada, não exigências. P
 | E | Aviso de cookies | Existing | existing |
 | 1 | Atualizações seguras na mesma major | Slice 1 | done |
 | 2 | Next.js 16 e React 19 | Slice 2 | done |
-| 3 | Corrigir inicialização dupla do Meta Pixel | Slice 2 | planned |
+| 3 | Corrigir inicialização dupla do Meta Pixel | Slice 2 | in-progress |
 | 4 | Lint no formato novo do ESLint | Slice 3 | planned |
 | 5 | Tailwind CSS 4 | Slice 4 | planned |
 
@@ -63,10 +63,14 @@ Subir Next.js, React, React DOM, `@next/third-parties` e os tipos do React para 
 - [x] Verify it: `/check verify Next.js 16 e React 19`
 spec [0001](../specs/0001-nextjs-16-react-19/index.md) · code in `package.json`, `package-lock.json`, `tsconfig.json`
 
-### 3. Corrigir inicialização dupla do Meta Pixel
+### 3. Corrigir inicialização dupla do Meta Pixel · in-progress
 O pixel hoje é iniciado no `useEffect` e de novo no `<Script>`, o que pode contar o PageView duas vezes. Corrigir junto com a mudança nos scripts de terceiros.
 **Done when:** cada carregamento de página dispara um único PageView do Meta Pixel, e o fallback sem JavaScript continua presente.
 - [ ] Build it: `/develop corrigir inicialização dupla do Meta Pixel`
+  - [x] `useEffect` removido; o pixel é iniciado só pelo `<Script>`, com o `<noscript>` mantido
+  - [ ] Pausar a tag 19 (HTML personalizado, init + PageView do mesmo pixel) no container `GTM-KMRWN8G3`. Decisão: o código é o dono do pixel. Feito no painel do GTM, fora do repo
+- [ ] Verify it: `/check verify corrigir inicialização dupla do Meta Pixel`
+code in `components/MetaPixel.tsx`
 
 ## Slice 3: Lint
 
