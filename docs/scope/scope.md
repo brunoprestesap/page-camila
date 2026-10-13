@@ -19,7 +19,7 @@ _São recomendações para manter a construção organizada, não exigências. P
 | 1 | Atualizações seguras na mesma major | Slice 1 | done |
 | 2 | Next.js 16 e React 19 | Slice 2 | done |
 | 3 | Corrigir inicialização dupla do Meta Pixel | Slice 2 | in-progress |
-| 4 | Lint no formato novo do ESLint | Slice 3 | in-progress |
+| 4 | Lint no formato novo do ESLint | Slice 3 | done |
 | 5 | Tailwind CSS 4 | Slice 4 | planned |
 
 ## Existing
@@ -74,7 +74,7 @@ code in `components/MetaPixel.tsx`
 
 ## Slice 3: Lint
 
-### 4. Lint no formato novo do ESLint · in-progress
+### 4. Lint no formato novo do ESLint · done
 O Next 16 remove o comando `next lint`, então o projeto precisa passar a usar o ESLint direto, com a configuração no formato novo (flat config) e a versão atual do `eslint-config-next`.
 **Done when:** `npm run lint` roda o ESLint atual sem erros e com as mesmas regras do Next (core web vitals) de antes.
 - [x] Design it (spec): `/architect lint no formato novo do ESLint`
@@ -84,7 +84,7 @@ O Next 16 remove o comando `next lint`, então o projeto precisa passar a usar o
   - [x] `CookieNotice` com `useSyncExternalStore`, lint verde · AC-2, AC-5, AC-6
   - [x] Lint no `prebuild` e build conferido · AC-4, AC-8
   - [x] Verificação no navegador e no preview da Vercel · AC-5, AC-6, AC-7. O Node do projeto na Vercel passou de 20.x (descontinuado, fazia todo deploy falhar) para 24.x
-- [ ] Verify it: `/check verify lint no formato novo do ESLint`
+- [x] Verify it: `/check verify lint no formato novo do ESLint`
 spec [0002](../specs/0002-lint-eslint-flat-config.md) · code in `eslint.config.mjs`, `package.json`, `package-lock.json`, `components/CookieNotice.tsx`
 
 ## Slice 4: Tailwind CSS 4

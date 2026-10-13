@@ -1,7 +1,7 @@
 # 0002. Lint com ESLint 10 e configuração no formato novo
 
 **Date**: 2026-10-13
-**Status**: In Progress
+**Status**: Accepted
 
 ## Summary
 
