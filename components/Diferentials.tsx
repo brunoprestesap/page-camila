@@ -6,22 +6,22 @@ import CardBeneficios from "./CardBeneficios";
 const Diferentials = () => {
   const contents = [
     {
-      icon: <FaHandHoldingHeart size={50} color="CDBCA8" />,
+      icon: <FaHandHoldingHeart size={50} color="#CDBCA8" />,
       title: "Atendimento humanizado ",
       text: "Fazemos questão de uma escuta atenta e humanizada. Prezamos pelo cuidado e humanização nos atendimentos por meio de um atendimento acolhedor. Atuamos com base na ética, empatia e respeito pela vida, com objetivo de melhorar cada vez mais sua qualidade de vida.",
     },
     {
-      icon: <MdFamilyRestroom size={50} color="CDBCA8" />,
+      icon: <MdFamilyRestroom size={50} color="#CDBCA8" />,
       title: "Acolhimento familiar",
       text: "Um diferencial que marca nosso atendimento é o espaço concedido aos familiares. O propósito da melhora integral do paciente inclui disponibilidade, acesso ao familiar para esclarecimento de dúvidas e participação no tratamento, respeitando as individualidades da pessoa e seguindo o sigilo médico.",
     },
     {
-      icon: <FaClock size={50} color="CDBCA8" />,
+      icon: <FaClock size={50} color="#CDBCA8" />,
       title: "Hora Marcada",
       text: "As consultas são realizadas por hora marcada, seja na modalidade de atendimento presencial ou por telemedicina. Em cada encontro, a pessoa tem seu espaço garantido para relatar suas dificuldades, sofrimento e angústias, respeitando seu sigilo.",
     },
     {
-      icon: <FaUserMd size={50} color="CDBCA8" />,
+      icon: <FaUserMd size={50} color="#CDBCA8" />,
       title: "Telemedicina",
       text: "Graças ao avanço das tecnologias, a telemedicina ajuda milhares de pessoas a buscar tratamento para os diversos tipos de transtornos. É possível atender pessoas que residem em outros estados e em outros países, devido a facilidade dos encontros por meio das vídeochamadas e também pela possibilidade do envio de receitas digitais. A sensação é de estar presente junto ao médico, como numa consulta presencial.",
     },

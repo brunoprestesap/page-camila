@@ -40,9 +40,9 @@ const Footer = () => {
                   rel="noreferrer"
                   className="flex items-center gap-1"
                   id="instagram"
+                  aria-label="Instagram"
                 >
                   <FaInstagram
-                    aria-labelledby="instagram"
                     color="white"
                     size={25}
                   />
@@ -55,9 +55,9 @@ const Footer = () => {
                   rel="noreferrer"
                   className="flex items-center gap-1"
                   id="facebook"
+                  aria-label="Facebook"
                 >
                   <FaFacebookF
-                    aria-labelledby="facebook"
                     color="white"
                     size={25}
                   />
@@ -74,20 +74,20 @@ const Footer = () => {
               </h2>
             </div>
             <div className="flex gap-3 items-center mb-3">
-              <FaHeadset size={30} color="CDBCA8" />
+              <FaHeadset size={30} color="#CDBCA8" />
               <h2 className="lining-nums text-xl text-white subpixel-antialiased">
                 (96) 99135-4590
               </h2>{" "}
             </div>
             <div className="flex gap-3 items-center mb-3">
-              <FaHospital size={30} color="CDBCA8" />
+              <FaHospital size={30} color="#CDBCA8" />
               <h2 className="text-base text-white lining-nums">
                 Instituto AMPARO - Av. Ataíde Teive, 1217, 1º Andar, Sala nº 3 -
                 Centro, Macapá - Amapá CEP: 68900-095
               </h2>
             </div>
             <div className="flex gap-3 items-center mb-3">
-              <FaMailBulk size={30} color="CDBCA8" />
+              <FaMailBulk size={30} color="#CDBCA8" />
               <h2 className="text-base text-white">
                 clinicadracamilaneiva@gmail.com
               </h2>

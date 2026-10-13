@@ -20,16 +20,10 @@ const BtnWhats = ({ pbottom }: Props) => {
         onClick={() =>
           sendGTMEvent({ event: "buttonClicked", value: "whatsapp" })
         }
+        className="bg-[#03C988] text-2xl p-4 rounded-full text-white hover:drop-shadow-xl flex flex-col items-center justify-center gap-2"
       >
-        <button
-          type="button"
-          title="Whatsapp"
-          // style={{ background: "#03C988", borderRadius: "50%" }}
-          className="bg-[#03C988] text-2xl p-4 rounded-full text-white hover:drop-shadow-xl flex flex-col items-center justify-center gap-2"
-        >
-          <FaWhatsapp />
-          <span className="text-white text-xs">Whatsapp</span>
-        </button>
+        <FaWhatsapp />
+        <span className="text-white text-xs">Whatsapp</span>
       </Link>
     </div>
   );
