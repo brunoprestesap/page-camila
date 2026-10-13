@@ -20,7 +20,7 @@ _São recomendações para manter a construção organizada, não exigências. P
 | 2 | Next.js 16 e React 19 | Slice 2 | done |
 | 3 | Corrigir inicialização dupla do Meta Pixel | Slice 2 | in-progress |
 | 4 | Lint no formato novo do ESLint | Slice 3 | done |
-| 5 | Tailwind CSS 4 | Slice 4 | in-progress |
+| 5 | Tailwind CSS 4 | Slice 4 | done |
 
 ## Existing
 
@@ -89,7 +89,7 @@ spec [0002](../specs/0002-lint-eslint-flat-config.md) · code in `eslint.config.
 
 ## Slice 4: Tailwind CSS 4
 
-### 5. Tailwind CSS 4 · in-progress
+### 5. Tailwind CSS 4 · done
 Migrar para o Tailwind 4, que move a configuração para dentro do CSS e troca o plugin do PostCSS.
 **Done when:** não existe mais `tailwind.config.ts` (ou ele é só legado documentado), as cores, sombras, bordas e espaçamentos das duas páginas ficam iguais a antes no desktop e no celular, e o build passa.
 - [x] Design it (spec): `/architect Tailwind CSS 4`
@@ -98,7 +98,7 @@ Migrar para o Tailwind 4, que move a configuração para dentro do CSS e troca o
   - [x] Tailwind 4 de ponta a ponta com a ferramenta oficial, ajustado à spec (CSS, cursor, foco, classes mortas) · AC-1, AC-2, AC-3, AC-5, AC-6
   - [x] Lock com os binários de Linux e audit conferidos · AC-1
   - [x] Verificação contra a linha de base e preview na Vercel · AC-3, AC-4, AC-5, AC-6, AC-7, AC-8
-- [ ] Verify it: `/check verify Tailwind CSS 4`
+- [x] Verify it: `/check verify Tailwind CSS 4`
 spec [0003](../specs/0003-tailwind-css-4/index.md) · code in `app/globals.css`, `postcss.config.mjs`, `package.json`, `package-lock.json`, `components/`
 
 ## Deferred
