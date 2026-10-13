@@ -46,6 +46,7 @@ Stored in `docs/specs/`. Format: `docs/specs/NNNN-title.md`.
 - `"use client"` só onde há estado, efeito ou API do navegador (ex.: `CookieNotice`, `MetaPixel`, `Depositions`, `ContentsVideo`).
 - Lint: ESLint 10 com `eslint.config.mjs` (flat config, `eslint-config-next/core-web-vitals`), rodando no projeto todo com `--max-warnings 0`. Corrija o código em vez de usar `eslint-disable` ou desligar regras (spec 0002).
 - Arquivos estáticos (imagens, capas, vídeos `.mp4`) ficam em `public/assets/` e são referenciados como `/assets/...`.
+- Foto de tela cheia (`Hero`, `Brand`, política de privacidade) usa `components/ScreenImage.tsx`, que oferece `<nome>-828/1080/1600.webp` ao lado do `<nome>.jpg` original. Trocou a foto, gere as três versões de novo com o comando do comentário do componente, senão o navegador continua mostrando a antiga.
 - Âncoras de navegação usam `id` nas seções (`hero`, `sobre`, `tratamentos`, `diferenciais`, `depoimentos`, `conteudos`, `cta`, `contact`), e o menu do `Footer` aponta para elas. Cada `id` aparece uma vez só na página. Ao renomear um `id`, procure os links que apontam para ele.
 - Link com cara de botão é o próprio `<Link>` estilizado, sem `<button>` dentro (HTML inválido). Controle que não navega, como seta e ponto de carrossel, é `<button type="button">` com `aria-label`. Link só com ícone ganha `aria-label`.
 
