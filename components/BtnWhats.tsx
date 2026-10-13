@@ -14,7 +14,7 @@ const BtnWhats = ({ pbottom }: Props) => {
       style={{ zIndex: "1000" }}
     >
       <Link
-        href="https://wa.me/5596991354590"
+        href="https://wa.me/5596991354590?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Dra.%20Camila%20e%20gostaria%20de%20agendar%20uma%20consulta."
         target="_blank"
         rel="noreferrer"
         onClick={() =>
