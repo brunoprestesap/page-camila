@@ -9,7 +9,12 @@ const VideoPlayer = ({ id, videoId, poster }: Props) => (
     key={id}
     className="group shadow-2xl rounded-2xl duration-500 hover:-translate-y-2"
   >
-    <video className="w-full h-[550px]" controls poster={poster}>
+    <video
+      className="w-full h-[550px]"
+      controls
+      preload="none"
+      poster={poster}
+    >
       <source src={videoId} type="video/mp4" />
     </video>
   </div>

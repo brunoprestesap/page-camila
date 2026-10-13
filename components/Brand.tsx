@@ -1,10 +1,10 @@
-import Image from "next/image";
+import ScreenImage from "./ScreenImage";
 import React from "react";
 
 const Brand = () => {
   return (
     <div id="brand" className="relative w-full">
-      <Image
+      <ScreenImage
         className="w-full h-screen object-cover object-top"
         width={3232}
         height={4774}

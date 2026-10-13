@@ -1,9 +1,9 @@
-import Image from "next/image";
+import ScreenImage from "@/components/ScreenImage";
 
 const page = () => {
   return (
     <div id="privacidade" className="relative w-full">
-      <Image
+      <ScreenImage
         className="w-full h-screen object-cover object-top"
         width={3232}
         height={4774}
